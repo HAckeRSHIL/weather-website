@@ -3,7 +3,7 @@ const express = require("express");
 const hbs = require("hbs");
 const forecast = require("./utils/forecast.js");
 const app = express();
-
+const port = process.env.PORT || 3000;
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../templates/views");
@@ -51,7 +51,7 @@ app.get("/weather", (req, res) => {
 app.get("/about", (req, res) => {
   res.render("about", {
     title: "About Me",
-    name: "Andrew Mead",
+    name: "Harshil Patel",
   });
 });
 
@@ -59,7 +59,7 @@ app.get("/help", (req, res) => {
   res.render("help", {
     helpText: "This is some helpful text.",
     title: "Help",
-    name: "Andrew Mead",
+    name: "Harshil Patel",
   });
 });
 
@@ -73,7 +73,7 @@ app.get("/weather", (req, res) => {
 app.get("/help/*", (req, res) => {
   res.render("404", {
     title: "404",
-    name: "Andrew Mead",
+    name: "Harshil Patel",
     errorMessage: "Help article not found.",
   });
 });
@@ -81,11 +81,11 @@ app.get("/help/*", (req, res) => {
 app.get("*", (req, res) => {
   res.render("404", {
     title: "404",
-    name: "Andrew Mead",
+    name: "Harshil Patel",
     errorMessage: "Page not found.",
   });
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("Server is up on port 3000.");
 });

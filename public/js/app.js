@@ -6,7 +6,7 @@ const m2 = document.querySelector("#m2");
 btn.addEventListener("click", (e) => {
   e.preventDefault();
   const location = search.value;
-  const path = "http://localhost:3000/weather?address=" + location;
+  const path = "/weather?address=" + location;
   m1.textContent = "Loading.....";
   fetch(path).then((response) => {
     response.json().then((data) => {
