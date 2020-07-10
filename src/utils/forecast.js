@@ -7,7 +7,7 @@ forecast = (city, callback) => {
     if (error) {
       callback(1);
     } else if (resp.body) {
-      callback(resp.body.data[0].weather.description, city);
+      callback(resp.body.data[0], city);
     } else {
       callback(2);
     }

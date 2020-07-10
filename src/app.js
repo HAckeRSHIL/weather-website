@@ -30,21 +30,17 @@ app.get("/weather", (req, res) => {
       error: "Provide a address for query",
     });
   }
-  forecast(req.query.address, (forecast, location, address) => {
-    if (forecast == 1) {
+  forecast(req.query.address, (forecastObj, city) => {
+    if (forecast === 1) {
       return res.send({
         error: "Can not connect to the server.",
       });
-    } else if (forecast == 2) {
+    } else if (forecast === 2) {
       return res.send({
         error: "Can not find location",
       });
     }
-    res.send({
-      forecast,
-      location,
-      address: req.query.address,
-    });
+    res.send({ forecastObj, city });
   });
 });
 
