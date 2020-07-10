@@ -5,10 +5,14 @@ forecast = (city, callback) => {
   const url = baseurl + city + suffixurl;
   request({ url: url, json: true }, (error, resp, body) => {
     if (error) {
+      console.log("1");
       callback(1);
     } else if (resp.body) {
+      console.log("testtt");
+      console.log(resp.body);
       callback(resp.body.data[0], city);
     } else {
+      console.log("2");
       callback(2);
     }
   });

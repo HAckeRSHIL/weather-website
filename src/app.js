@@ -31,11 +31,12 @@ app.get("/weather", (req, res) => {
     });
   }
   forecast(req.query.address, (forecastObj, city) => {
-    if (forecast === 1) {
+    if (forecastObj === 1) {
       return res.send({
         error: "Can not connect to the server.",
       });
-    } else if (forecast === 2) {
+    } else if (forecastObj === 2) {
+      console.log("tes");
       return res.send({
         error: "Can not find location",
       });

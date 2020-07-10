@@ -11,11 +11,18 @@ btn.addEventListener("click", (e) => {
   const location = search.value;
   const path = "/weather?address=" + location;
   m1.textContent = "Loading.....";
+  m2.textContent = "";
+  m3.textContent = "";
+  m4.textContent = "";
+  m5.textContent = "";
+  m6.textContent = "";
   fetch(path).then((response) => {
     response.json().then((data) => {
-      if (data.error) {
+      if (!data.forecastObj) {
+        console.log("Hello");
         m1.textContent = "Error : " + data.error;
       } else {
+        console.log("Hello2");
         m1.textContent = "Forecast : " + data.forecastObj.weather.description;
         m2.textContent =
           "Location : " +
