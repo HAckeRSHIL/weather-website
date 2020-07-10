@@ -1,5 +1,3 @@
-console.log("Client side javascript file is loaded!");
-
 const search = document.querySelector("#search");
 const btn = document.querySelector("#btn");
 const m1 = document.querySelector("#m1");
